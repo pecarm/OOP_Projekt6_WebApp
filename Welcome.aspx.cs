@@ -9,9 +9,25 @@ namespace OOP_Projekt_WebApp
 {
     public partial class Welcome : System.Web.UI.Page
     {
+        readonly ReservationService.Service1Client service = new ReservationService.Service1Client();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            Dictionary<DateTime, string> shows = service.GetShows();
 
+            BulletedList1.Items.Clear();
+
+            foreach (var show in shows)
+            {
+                BulletedList1.Items.Add(show.Key.ToString("f") + "; " + show.Value);
+            }
+        }
+
+        protected void BulletedList1_Click(object sender, BulletedListEventArgs e)
+        {
+            string[] temp = (sender as BulletedList).Items[e.Index].Value.Split(';');
+
+            Response.Redirect(String.Format("Reservation.aspx?dateTime={0}&name={1}", temp[0], temp[1]));
         }
     }
 }
