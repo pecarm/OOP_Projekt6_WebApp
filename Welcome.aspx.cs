@@ -29,5 +29,15 @@ namespace OOP_Projekt_WebApp
 
             Response.Redirect(String.Format("Reservation.aspx?dateTime={0}&name={1}", temp[0], temp[1]));
         }
+
+        protected void ButtonByDate_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(String.Format("ShowByDate.aspx?dateTime={0}", DateTime.Today.ToString()));
+        }
+
+        protected void ButtonByName_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ShowByName.aspx");
+        }
     }
 }

@@ -9,6 +9,12 @@
 <body>
     <form id="form1" runat="server">
         <div>
+
+            <asp:Button ID="ButtonByDate" runat="server" Text="Představení dle data" OnClick="ButtonByDate_Click" />
+            <asp:Button ID="ButtonByName" runat="server" Text="Představení dle názvu" OnClick="ButtonByName_Click" />
+
+        </div>
+        <div>
             <asp:BulletedList ID="BulletedList1" runat="server" DisplayMode="LinkButton" OnClick="BulletedList1_Click">
             </asp:BulletedList>
         </div>
